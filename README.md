@@ -21,18 +21,28 @@ To write and execute an Assembly Language Program for sorting data in Ascending 
 ---
 
 ## Program (Ascending order)
-
-```asm
-
-
-
-
+```
+ORG 0000H
+LOOP1:MOV R0,#40H
+MOV R6,#04H
+DEC R6
+LOOP:MOV A,@R0
+INC R0
+MOV B,@R0
+CJNE A,B,NEXT
+NEXT:JC DOWN
+MOV @R0,A
+DEC R0
+MOV @R0,B
+INC R0
+DOWN:DJNZ R6,LOOP
+MOV R1,#02H
+DJNZ R1,LOOP1
+END
 ```
 ## OUTPUT(Ascending order)
+<img width="958" height="206" alt="image" src="https://github.com/user-attachments/assets/68c97c35-b36b-4504-be11-5240266a009a" />
 
-
-
----
 
 ## Algorithm(Descending order)
 1. Initialize the register **R7** with count.  
@@ -47,18 +57,32 @@ To write and execute an Assembly Language Program for sorting data in Ascending 
    - If **Yes**, stop the program.  
 ---
 ## Program (Descending order)
-
-```asm
-
-
-
-
 ```
+ORG 0000H
+LOOP1:MOV R0,#40H
+MOV R6,#04H
+DEC R6
+LOOP:MOV A,@R0
+INC R0
+MOV B,@R0
+CJNE A,B,NEXT
+NEXT:JNC DOWN
+MOV @R0,A
+DEC R0
+MOV @R0,B
+INC R0
+DOWN:DJNZ R6,LOOP
+MOV R1,#02H
+DJNZ R1,LOOP1
+END
+```
+
 ## OUTPUT(Descending order)
+<img width="956" height="188" alt="image" src="https://github.com/user-attachments/assets/a0f7f832-2327-4a3e-9c6d-49e56d1f33e5" />
 
+Result:
+Thus the sorting of given data was done using 8051 keil software.
 
-
----
 ## RESULT:
 Thus the sorting of given data was done using 8051 keil software.
 
